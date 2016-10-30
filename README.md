@@ -47,6 +47,13 @@ Dan Gorman, Barbara Stall
 
 ## Slack Custom Integrations
 
+### Incoming Webhook
+
+* go to https://<your slack team>.slack.com/apps/build
+* select Make a Custom Integration
+* Select 'Incoming Webhooks'
+* Configure this any way yould like too, the important information will be handled automatically
+
 ### Slash Command
 
 * go to https://<your slack team>.slack.com/apps/build
@@ -56,11 +63,3 @@ Dan Gorman, Barbara Stall
 * For the purposes of the tutorial, we will assume the command chosen was /button
 
 ![Slash Command Config](/pics/slashCmd.png)
-
-### Incoming Webhook
-
-- go to https://<your slack team>.slack.com/apps/build
-- select Make a Custom Integration
-- Select 'Incoming Webhooks'
-
-![Alt](/wp.png "Title")
