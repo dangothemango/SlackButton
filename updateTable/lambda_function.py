@@ -41,6 +41,8 @@ def lambda_handler(event, context):
         'POST': lambda dynamo, x: dynamo.update_item(**x),
     }
 
+    channel=None
+
     operation = event['httpMethod']
     if not operation in operations:
         return respond(ValueError('Unsupported method "{}"'.format(operation)))
@@ -52,6 +54,10 @@ def lambda_handler(event, context):
                 return respond(ValueError("No Button Name Specified"))
         elif item.startswith("response_url="):
             rURL=urllib.unquote(item[13:]).decode('utf8')
+        elif item.startswith("channel_name="):
+            channel=urllib.unquote(item[13:]).decode('utf8')
+    if channel!=None and not 'channel' in data:
+        data['channel']=channel
     data["Item"]['URL']=rURL
     dynamo = boto3.resource('dynamodb').Table("SlackButton")
     try:

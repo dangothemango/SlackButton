@@ -27,22 +27,16 @@ def lambda_handler(event, context):
       event (dict): Data passed to the handler by Amazon Lambda
       context (LambdaContext): Provides runtime information to the handler
     """
-    print("!")
     dynamodb = boto3.resource('dynamodb')
-    print("2")
     table = dynamodb.Table('SlackButton')
-    print ("3")
     response=table.get_item(Key={
-        'ButtonID': "NewButton"
+        'ButtonID': "<buttonname>"
     })
-    # {u'username': u'BeckyButton', 
-    # u'onLongPress': u'Walked and Fed', u'onDoublePress': u'Fed', 
-    # u'URL': u'https://hooks.slack.com/services/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', 
-    # u'ButtonID': u'Becky', u'icon_emoji': u':dog:', u'Channel': u'#hackmarist', u'onPress': u'Walked'}
+   
     response=response['Item']
     print(response)
     
-    slack_webhook_url = "https://hooks.slack.com/services/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"
+    slack_webhook_url = response['URL']
     if "channel" in response:
         slack_channel = response["channel"]
         

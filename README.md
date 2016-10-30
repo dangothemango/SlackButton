@@ -65,3 +65,13 @@ Dan Gorman, Barbara Stall
 ![Slash Command Config](/pics/slashCmd.png)
 
 # Usage
+
+![Sample Usage](/pics/sampleCommand.png)
+
+* The only required argument is Button name, the rest are optional as follows
+* -p: The message you want to display on a single press
+* -d: The message you want to display on a double press
+* -l: The message you want to display on a long press
+* -e: The slack emoji you would like to display as the buttons photo
+* -u: Alternately a url to the icon you would like to use as the photo
+* -c: the default channel is the one active when the command is sent, use -c to overwrite
