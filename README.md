@@ -49,6 +49,14 @@ Dan Gorman, Barbara Stall
 
 ### Slash Command
 
+* go to https://<your slack team>.slack.com/apps/build
+* select Make a Custom Integration
+* Select 'Slash Command'
+* The only important configurations here are the URL box must be the API URL we saved from the updateTable function, and it must be a POST method
+* For the purposes of the tutorial, we will assume the command chosen was /button
+
+![Slash Command Config](/pics/slashCmd.png)
+
 ### Incoming Webhook
 
 - go to https://<your slack team>.slack.com/apps/build
