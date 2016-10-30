@@ -36,7 +36,7 @@ def lambda_handler(event, context):
     response=response['Item']
     print(response)
     
-    slack_webhook_url = 'https://hooks.slack.com/services/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'
+    slack_webhook_url = '<YourWebhookHere>'
         
     slack_message="No message found for click type"
 
@@ -60,5 +60,6 @@ def lambda_handler(event, context):
     for i in ['icon_emoji','icon_url','channel']:
         if i in response:
             result[i]=response[i]
-    print (result)
-    requests.post(slack_webhook_url, json={'username': 'HackMarist', 'text': 'this is a test', 'channel': '#random'})
+    if 'icon_url' in result and 'icon_emoji' in result:
+        result.pop('icon_emoji',None)
+    requests.post(slack_webhook_url, json=result)

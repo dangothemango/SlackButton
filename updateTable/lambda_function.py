@@ -57,7 +57,7 @@ def lambda_handler(event, context):
         elif item.startswith("channel_name="):
             channel=urllib.unquote(item[13:]).decode('utf8')
     if channel!=None and not 'channel' in data['Item']:
-        data['Item']['channel']=channel
+        data['Item']['channel']='#'+channel
     data["Item"]['URL']=rURL
     dynamo = boto3.resource('dynamodb').Table("SlackButton")
     try:
@@ -75,12 +75,12 @@ def parse(argv):
     result['ButtonID'] = argv[0]
     if len(argv) > 1:
         args = argv[1]
-        args=args.split('-')
+        args=args.split(' -')
         
         for arg in args:
             if len(arg)==0:
                 continue
             arg=arg.strip().split(' ',1)
-            key=arg2key[arg[0].lower()]
+            key=arg2key[arg[0].strip('-').lower()]
             result[key]=arg[1]
     return { "Item": result }
