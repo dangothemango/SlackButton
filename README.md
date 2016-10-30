@@ -63,3 +63,5 @@ Dan Gorman, Barbara Stall
 * For the purposes of the tutorial, we will assume the command chosen was /button
 
 ![Slash Command Config](/pics/slashCmd.png)
+
+# Usage
