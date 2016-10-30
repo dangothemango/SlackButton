@@ -56,8 +56,8 @@ def lambda_handler(event, context):
             rURL=urllib.unquote(item[13:]).decode('utf8')
         elif item.startswith("channel_name="):
             channel=urllib.unquote(item[13:]).decode('utf8')
-    if channel!=None and not 'channel' in data:
-        data['channel']=channel
+    if channel!=None and not 'channel' in data['Item']:
+        data['Item']['channel']=channel
     data["Item"]['URL']=rURL
     dynamo = boto3.resource('dynamodb').Table("SlackButton")
     try:
