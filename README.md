@@ -81,3 +81,4 @@ Dan Gorman, Barbara Stall
 * -u: Alternately a url to the icon you would like to use as the photo
 * -c: the default channel is the one active when the command is sent, use -c to overwrite
 * Url responses and direction for AWS is handled automatically
+* Note: -u, once set will override -e
