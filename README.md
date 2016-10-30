@@ -1,6 +1,10 @@
 # SlackButton
 Configure an amazon IoT button to send messages to a slack channel
 
+Uses AWS Lambda, API Gateway, and DynamoDB for data storage and communication with the button
+
+Allows for complete customization of all aspects of the message, including three unique messages depending on the type of button press (Single, Double, Long)
+
 ## Collabarators
 
 Dan Gorman, Barbara Stall
