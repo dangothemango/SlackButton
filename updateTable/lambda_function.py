@@ -7,12 +7,12 @@ import urllib
 result={}
 
 arg2key={
-	"c" :"channel",
-	"e" :"icon_emoji",
-	"u" :"icon_url",
-	"p" :"onPress",
-	"d" :"onDoublePress",
-	"l" :"onLongPress"
+    "c" :"channel",
+    "e" :"icon_emoji",
+    "u" :"icon_url",
+    "p" :"onPress",
+    "d" :"onDoublePress",
+    "l" :"onLongPress"
 }
 
 def respond(err, res=None):
@@ -78,9 +78,9 @@ def parse(argv):
         args=args.split('-')
         
         for arg in args:
-        	if len(arg)==0:
-        		continue
-        	arg=arg.strip().split(' ',1)
-        	key=arg2key[arg[0].lower()]
-        	result[key]=arg[1]
+            if len(arg)==0:
+                continue
+            arg=arg.strip().split(' ',1)
+            key=arg2key[arg[0].lower()]
+            result[key]=arg[1]
     return { "Item": result }

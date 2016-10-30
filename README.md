@@ -42,6 +42,7 @@ Dan Gorman, Barbara Stall
 * Configure the function as shown below
 * The most important thing here is to make sure the role is the same role you made in the updateTable function
 * Use /onPress/uploadThis.zip
+* Once the code has been uploaded, you must change line 33 to the name of the button you will use, any character except spaces and 39 to your webhook url which we havent created
 
 ![On Press Setup Instructions](/pics/onPressConfig.png)
 
@@ -52,7 +53,7 @@ Dan Gorman, Barbara Stall
 * go to https://<your slack team>.slack.com/apps/build
 * select Make a Custom Integration
 * Select 'Incoming Webhooks'
-* Configure this any way yould like too, the important information will be handled automatically
+* Configure this any way yould like too and then copy the webhook URL into line 39 of your onButton Function
 
 ### Slash Command
 
@@ -75,3 +76,4 @@ Dan Gorman, Barbara Stall
 * -e: The slack emoji you would like to display as the buttons photo
 * -u: Alternately a url to the icon you would like to use as the photo
 * -c: the default channel is the one active when the command is sent, use -c to overwrite
+* Url responses and direction for AWS is handled automatically

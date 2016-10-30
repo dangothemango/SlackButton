@@ -30,15 +30,13 @@ def lambda_handler(event, context):
     dynamodb = boto3.resource('dynamodb')
     table = dynamodb.Table('SlackButton')
     response=table.get_item(Key={
-        'ButtonID': "<buttonname>"
+        'ButtonID': "HackMarist"
     })
    
     response=response['Item']
     print(response)
     
-    slack_webhook_url = response['URL']
-    if "channel" in response:
-        slack_channel = response["channel"]
+    slack_webhook_url = 'https://hooks.slack.com/services/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'
         
     slack_message="No message found for click type"
 
@@ -56,12 +54,11 @@ def lambda_handler(event, context):
         
     result={
         'text': slack_message,
-        'channel': slack_channel,
         'username': response["ButtonID"]
     }
     
-    for i in ['icon_emoji','icon_url']:
+    for i in ['icon_emoji','icon_url','channel']:
         if i in response:
             result[i]=response[i]
-        
-    requests.post(slack_webhook_url, json=result)
+    print (result)
+    requests.post(slack_webhook_url, json={'username': 'HackMarist', 'text': 'this is a test', 'channel': '#random'})
